@@ -1,0 +1,192 @@
+@keyframes checked {
+  to {
+    stroke-dashoffset: 0; } }
+
+.managerContainer {
+  font-family: 'SF Pro Text', Helvetica Neue, sans-serif;
+  margin: auto;
+  max-width: 640px;
+  margin-top: 53px;
+  margin-bottom: 112px;
+  height: auto;
+  min-height: 859px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 4px; }
+
+.listContainer {
+  min-height: 800px;
+  max-width: 640px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.outerHeader {
+  margin-bottom: 16px;
+  width: auto;
+  color: #f7f7f7;
+  max-height: 43px;
+  margin-left: 16px;
+  display: block;
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'SF Pro Text', Helvetica, sans-serif; }
+
+.innerHeader {
+  margin-top: 32px;
+  width: auto;
+  color: #11a9ec;
+  max-height: 43px;
+  margin-left: 16px;
+  display: block;
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'SF Pro Text', Helvetica, sans-serif; }
+
+.addTaskContainer, .task {
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 18px;
+  height: 63px;
+  margin: 0px 16px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: row; }
+  .addTaskContainer::after, .task::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #11a9ec;
+    transition: width 0.8s ease-out; }
+  .addTaskContainer:focus-within::after, .task:focus-within::after {
+    width: 100%; }
+  .addTaskContainer:focus-within button, .task:focus-within button {
+    visibility: visible; }
+
+.addTaskButton {
+  height: 22px;
+  width: 45px;
+  font-size: 18px;
+  align-self: center;
+  border: none;
+  font-family: 'SF Pro Text - Heavy', Helvetica, sans-serif;
+  font-weight: 800;
+  background-color: #f7f7f7;
+  color: #e6e6e6;
+  margin-right: 1px;
+  visibility: hidden; }
+  .addTaskButton:focus {
+    outline: none; }
+
+.taskInput, .taskContent {
+  height: 22px;
+  width: 529px;
+  font-size: 18px;
+  align-self: center;
+  border: none;
+  display: block;
+  color: #666666;
+  box-shadow: none;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  background-color: #f7f7f7; }
+  .taskInput:focus, .taskContent:focus {
+    outline: none; }
+  .taskInput.active + button, .active.taskContent + button {
+    color: #0eadeb; }
+  .taskInput :-ms-input-placeholder, .taskContent :-ms-input-placeholder {
+    font-family: 'San Francisco Text', sans-serif;
+    color: #cccccc; }
+  .taskInput::placeholder, .taskContent::placeholder {
+    font-family: 'San Francisco Text', sans-serif;
+    color: #cccccc; }
+  .taskInput ::-ms-clear, .taskContent ::-ms-clear {
+    display: none; }
+
+.image {
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  margin-right: 16px; }
+
+.taskList {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.task {
+  text-align: center; }
+
+svg {
+  border: none;
+  display: block; }
+
+.checkboxContainer {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  align-self: center;
+  margin-right: 10px; }
+  .checkboxContainer label {
+    background-color: #f7f7f7;
+    border: 2px solid #11a9ec;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 22px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 22px;
+    user-select: none; }
+    .checkboxContainer label svg {
+      height: 100%;
+      float: left;
+      width: 100%; }
+      .checkboxContainer label svg polyline, .checkboxContainer label svg circle {
+        fill: none;
+        stroke-width: 1.5; }
+
+input[type="checkbox"] {
+  display: none; }
+  input[type="checkbox"]:checked + label svg circle {
+    fill: #11a9ec; }
+  input[type="checkbox"]:checked + label svg polyline {
+    stroke: #f7f7f7;
+    animation: checked 2s ease 0.5s forwards;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50; }
+
+.taskContent {
+  width: 500px;
+  display: block;
+  height: auto;
+  white-space: pre-wrap;
+  text-align: left; }
+  @media screen and (max-width: 500px) {
+    .taskContent {
+      margin-left: 10px; } }
+  .taskContent.checked {
+    color: #cdcdcd;
+    text-decoration: line-through; }
+
+.timestamp {
+  display: inline-block;
+  width: 73px;
+  height: 14px;
+  align-self: center;
+  color: #cdcdcd;
+  margin-right: 1px;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 27px 1px 23px 0px; }
+  @media screen and (max-width: 390px) {
+    .timestamp {
+      margin-top: 10px; } }

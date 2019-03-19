@@ -1,0 +1,223 @@
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+ 
+.managerContainer {
+  font-family: 'SF Pro Text', Helvetica Neue, sans-serif;
+  margin: auto;
+  max-width: 640px;
+  margin-top: 53px;
+  margin-bottom: 112px;
+  height: auto;
+  min-height: 859px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 4px;
+}
+
+.listContainer {
+  min-height: 800px;
+  max-width: 640px;;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: $color-light;
+  @include flex(column);
+}
+
+.outerHeader {
+  margin-bottom: 16px;
+  @include header($color-light); 
+}
+
+.innerHeader {
+  margin-top: 32px;
+  @include header($color-blue);
+}
+
+.addTaskContainer {
+  border-bottom: 1px solid $color-grey-light;     
+  font-size: 18px;
+  height: 63px;
+  margin: 0px 16px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 2px;
+    background: $color-blue;
+    transition: width 0.8s ease-out;
+  }
+
+  &:focus-within::after {
+    width: 100%;
+  }
+
+  &:focus-within button {
+    visibility: visible;
+  }
+}
+
+.addTaskButton {
+  @include addTaskGroup(45px);
+  font-family: 'SF Pro Text - Heavy', Helvetica, sans-serif;
+  font-weight: 800;
+  background-color: $color-light;
+  color: $color-grey-light;              
+  margin-right: 1px;
+  visibility: hidden;
+
+    &:focus{
+      outline: none;
+    }
+}
+
+.taskInput {
+  @include addTaskGroup(529px); 
+  display: block;
+  color: #666666;
+  box-shadow: none;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  background-color: $color-light;
+
+  &:focus {
+    outline: none;
+  }
+ 
+  &.active + button {
+    color: #0eadeb;
+  }
+
+  :-ms-input-placeholder { 
+    font-family: 'San Francisco Text', sans-serif;
+    color: $color-grey-dark;
+  }  
+ 
+  &::placeholder {
+    font-family: 'San Francisco Text', sans-serif;
+    color: $color-grey-dark;
+  }
+
+  ::-ms-clear {   
+    display: none;
+  }
+}
+
+.image {
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  margin-right: 16px;
+}
+
+.taskList {
+  @include flex(column);
+}
+
+.task {
+   @extend .addTaskContainer;
+   text-align: center;
+}
+
+svg {
+  border: none;
+  display: block;
+}
+
+.checkboxContainer {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  align-self: center;
+  margin-right: 10px;
+
+  label {
+    background-color: $color-light;
+    border: 2px solid $color-blue;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 22px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 22px;
+    user-select: none;
+
+    svg {
+      height: 100%;
+      float: left;
+      width: 100%;  
+
+      polyline, circle {
+        fill: none;
+        stroke-width: 1.5;
+      }
+    }    
+  }
+} 
+
+input[type="checkbox"] {   
+  display: none;
+
+  &:checked + label svg {
+    circle{
+      fill: $color-blue;
+    }
+
+    polyline {
+      stroke: $color-light;
+      animation: checked 2s ease 0.5s forwards;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+    }    
+  }
+} 
+ 
+.taskContent {
+  @extend .taskInput;
+  @include responsive(500);
+  width: 500px;
+  display: block;
+  height: auto;
+  white-space: pre-wrap;    
+  text-align: left;
+
+  &.checked {
+    color: #cdcdcd;
+    text-decoration: line-through;
+  }
+}
+
+.timestamp {
+  display: inline-block;
+  width: 73px;
+  height: 14px;
+  align-self: center;
+  color: #cdcdcd;
+  margin-right: 1px;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 27px 1px 23px 0px;
+
+  @include responsive(390);
+}
+ 
+
+
+
+
+ 
+
+
+
+
+ 
