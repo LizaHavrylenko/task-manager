@@ -18,8 +18,7 @@ class TaskForm extends Component {
 
   handleBlur = () => {
     this.setState({
-      input: false,
-      focus: false,
+      input: false
     });
   }
 
