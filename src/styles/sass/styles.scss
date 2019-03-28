@@ -209,7 +209,7 @@ input[type="checkbox"] {
 }
 
 .checked {
-  &~ span {
+  &~span {
     visibility: visible;
   }
 
