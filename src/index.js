@@ -1,4 +1,5 @@
 import 'react-app-polyfill/ie9';
+import 'core-js/fn/array/find-index';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
