@@ -6,10 +6,17 @@ class TaskForm extends Component {
   state = {
     input: false,
   };
+
+  setButtonRef = element => {
+    this.buttonRef = element;
+  };
+
+  setContainerRef = element => {
+    this.containerRef = element;
+  };
  
   handleChange = (event) => {
-    const button = document.getElementById('addTaskButton');
-    button.classList.add('visible');
+    this.buttonRef.classList.add('visible');
     this.props.handleChange(event);
     this.setState({
       input: true
@@ -20,13 +27,13 @@ class TaskForm extends Component {
     this.setState({
       input: false
     });
-    const button = document.getElementById('addTaskButton');
-    button.classList.remove('visible');
+    this.buttonRef.classList.remove('visible');
+    this.containerRef.classList.remove('underline');
   }
 
   handleFocus = () => {
-    const button = document.getElementById('addTaskButton');
-    button.classList.add('visible');
+    this.buttonRef.classList.add('visible');
+    this.containerRef.classList.add('underline');
   }
  
   handleSubmit = (event) => {
@@ -44,7 +51,9 @@ class TaskForm extends Component {
       <form 
         onSubmit={this.handleSubmit} 
         id='addTask'
-        className='addTaskContainer'>
+        className='addTaskContainer'
+        ref={this.setContainerRef}
+      >
         <PlusSVG className='image' />
         <input 
           className={`taskInput ${ input ? ' active' : '' } `}
@@ -56,7 +65,12 @@ class TaskForm extends Component {
           value={taskContent} 
           required
           />
-        <button className='addTaskButton' id='addTaskButton' type='submit'>
+        <button 
+          className='addTaskButton'
+          id='addTaskButton' 
+          type='submit'
+          ref={this.setButtonRef}
+        >
           Add
         </button>
       </form>

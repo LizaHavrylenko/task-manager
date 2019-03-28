@@ -55,7 +55,7 @@
     transition: width 0.8s ease-out;
   }
   
-  &:focus-within::after {
+  &.underline::after {
     width: 100%;
   }
 }
