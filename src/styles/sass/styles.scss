@@ -54,13 +54,8 @@
     background: $color-blue;
     transition: width 0.8s ease-out;
   }
-
-  &:focus-within::after {
+  &.inFocus::after {
     width: 100%;
-  }
-
-  &:focus-within button {
-    visibility: visible;
   }
 }
 
@@ -75,6 +70,10 @@
 
     &:focus{
       outline: none;
+    }
+
+    &.inFocus {
+      visibility: visible;
     }
 }
 
@@ -93,6 +92,7 @@
   }
  
   &.active + button {
+    visibility: visible;
     color: #0eadeb;
   }
 

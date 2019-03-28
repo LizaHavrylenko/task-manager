@@ -6,6 +6,7 @@ import { ReactComponent as PlusSVG } from '../add.svg';
 class TaskForm extends Component {
   state = {
     input: false,
+    focus: false,
   };
  
   handleChange = (event) => {
@@ -20,6 +21,12 @@ class TaskForm extends Component {
       input: false
     });
   }
+
+  handleFocus = () => {
+    this.setState({
+      focus: true
+    });
+  }
  
   handleSubmit = (event) => {
     event.preventDefault();
@@ -31,23 +38,24 @@ class TaskForm extends Component {
 
   render(){  
     const { taskContent } = this.props;
-    const { input } = this.state;
+    const { input, focus } = this.state;
     return(
       <form 
         onSubmit={this.handleSubmit} 
         id='addTask'
-        className='addTaskContainer'>
+        className={`addTaskContainer ${focus ? 'inFocus' : ''}`}>
         <PlusSVG className='image' />
         <input 
           className={`taskInput ${ input ? ' active' : '' } `}
           type='text'  
           placeholder='Add new task' 
           onChange={this.handleChange}
+          onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           value={taskContent} 
           required
           />
-        <button className='addTaskButton' type='submit'>
+        <button className={`addTaskButton ${focus ? 'inFocus' : ''}`} type='submit'>
           Add
         </button>
       </form>
