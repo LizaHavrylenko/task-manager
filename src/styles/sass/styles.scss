@@ -67,10 +67,14 @@
   background-color: $color-light;
   color: $color-grey-light;              
   margin-right: 1px;
-  visibility: hidden;
+  opacity: 0;
 
     &:focus{
       outline: none;
+    }
+
+    &.visible {
+      opacity: 1;
     }
 }
 
@@ -86,16 +90,12 @@
 
   &:focus {
     outline: none;
-
-    & + button {
-      visibility: visible;
-    }
   }
 
   &.active + button {
     color: #0eadeb;
   }
-
+ 
   :-ms-input-placeholder { 
     font-family: 'San Francisco Text', sans-serif;
     color: $color-grey-dark;
