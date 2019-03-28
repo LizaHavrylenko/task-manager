@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from './components/Header';
-import ManageTasks from './containers/ManageTasks';
+import ListManager from './containers/ListManager';
  
  
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
         <Header content='Task Manager' type='outerHeader' />
         <div className = 'listContainer'>
           <Header content='Work' type='innerHeader' />
-          <ManageTasks />
+          <ListManager />
         </div> 
       </div>
     );

@@ -23,7 +23,7 @@ class TaskForm extends Component {
  
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.manageTask();
+    this.props.submitTask();
     this.setState({
       input: false,
     });
@@ -33,10 +33,13 @@ class TaskForm extends Component {
     const { taskContent } = this.props;
     const { input } = this.state;
     return(
-        <form onSubmit={this.handleSubmit} id='addTask' className='addTaskContainer'>
+      <form 
+        onSubmit={this.handleSubmit} 
+        id='addTask'
+        className='addTaskContainer'>
         <PlusSVG className='image' />
         <input 
-          className={input ? 'taskInput active' : 'taskInput'}
+          className={`taskInput ${ input ? ' active' : '' } `}
           type='text'  
           placeholder='Add new task' 
           onChange={this.handleChange}
@@ -47,13 +50,14 @@ class TaskForm extends Component {
         <button className='addTaskButton' type='submit'>
           Add
         </button>
-        </form>
+      </form>
     );
   }
 }
 
 TaskForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  submitTask: PropTypes.func.isRequired,
   taskContent: PropTypes.string.isRequired,
 };
 

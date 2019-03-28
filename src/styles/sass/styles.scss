@@ -171,6 +171,7 @@ input[type="checkbox"] {
   &:checked + label svg {
     circle{
       fill: $color-blue;
+      position: relative;
     }
 
     polyline {
@@ -178,7 +179,7 @@ input[type="checkbox"] {
       animation: checked 2s ease 0.5s forwards;
       stroke-dasharray: 50;
       stroke-dashoffset: 50;
-    }    
+    }     
   }
 } 
  
@@ -190,14 +191,10 @@ input[type="checkbox"] {
   height: auto;
   white-space: pre-wrap;    
   text-align: left;
-
-  &.checked {
-    color: #cdcdcd;
-    text-decoration: line-through;
-  }
 }
 
 .timestamp {
+  visibility: hidden;
   display: inline-block;
   width: 73px;
   height: 14px;
@@ -209,6 +206,17 @@ input[type="checkbox"] {
   margin: 27px 1px 23px 0px;
 
   @include responsive(390);
+}
+
+.checked {
+  &~ span {
+    visibility: visible;
+  }
+
+  &+p {
+    color: #cdcdcd;
+    text-decoration: line-through;
+  }
 }
  
 
