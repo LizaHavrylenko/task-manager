@@ -7,10 +7,12 @@ class Checkbox extends Component {
    checked: false
   }
 
-  handleChange = (event) => {
+  handleClick = (event) => {
+    
     this.setState({
       checked: event.target.checked
     });
+  
     this.props.onChange(event);
   }
 
@@ -22,9 +24,9 @@ class Checkbox extends Component {
       <input 
         type='checkbox'
         name={name} 
-        className='checkboxInput'
+        className={`checkboxInput ${checked ? 'checked' : 'unchecked'}`}
         id={id}
-        onChange={this.handleChange} 
+        onClick={this.handleClick} 
       />
       <label htmlFor={id}>
         <svg className='checkbox' viewBox="0 0 22 22">

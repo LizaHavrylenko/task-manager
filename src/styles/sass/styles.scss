@@ -167,20 +167,20 @@ svg {
 
 input[type="checkbox"] {   
   display: none;
+} 
 
-  &:checked + label svg {
-    circle{
-      fill: $color-blue;
-      position: relative;
-    }
-
-    polyline {
-      stroke: $color-light;
-      animation: checked 2s ease 0.5s forwards;
-      stroke-dasharray: 50;
-      stroke-dashoffset: 50;
-    }     
+.checkboxInput.checked + label svg {
+  circle{
+    fill: $color-blue;
+    position: relative;
   }
+
+  polyline {
+    stroke: $color-light;
+    animation: checked 1.5s ease 0.5s forwards;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+  }     
 } 
  
 .taskContent {

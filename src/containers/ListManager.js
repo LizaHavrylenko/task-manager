@@ -57,17 +57,18 @@ class ManageTasks extends Component {
     const checkedTask = this.findFirstCheckedItem();
     const index = checkedTask ? listInState.indexOf(checkedTask) : listInState.length;
     let newList = listInState;
-    if(checked) {
+    if(checked) { 
       newTask.timer = setTimeout(() => {
         const filteredList =  listInState.filter(item => item.value !== task);
         this.setStateAndStorage(filteredList);
       }, 60000);
-      if(taskIndex === listInState.length -1) {
-        newList = listInState;
-      } else {
-        newList = [...listInState.slice(0, taskIndex), ...listInState.slice(taskIndex + 1, index), newTask,
-        ...listInState.slice(index)]; 
-      }
+        if(taskIndex === listInState.length -1) {
+          newList = listInState;
+        } else {
+          newList = [...listInState.slice(0, taskIndex), ...listInState.slice(taskIndex + 1, index), newTask,
+          ...listInState.slice(index)]; 
+        }
+        
     } else if (element !== null) {
       clearTimeout(newTask.timer); 
       if(taskIndex > index) {
@@ -75,12 +76,14 @@ class ManageTasks extends Component {
         ...listInState.slice(taskIndex + 1),]
       }
     } 
-    this.setState({
-      list: newList
-    });  
-
-    this.setState(prevState => ({ 
-      checkedTasks: prevState.checkedTasks.set(task, checked)}));  
+   
+    setTimeout(() => {
+      this.setState({
+        list: newList
+      });  
+      this.setState(prevState => ({ 
+        checkedTasks: prevState.checkedTasks.set(task, checked)})); 
+    }, 1500);    
   }
 
   displayTask = (task) => {

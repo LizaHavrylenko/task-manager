@@ -7,6 +7,7 @@ class TaskContainer extends Component {
  
   handleChange = (event) => {
     event.stopPropagation();
+    
     this.props.handleCheckboxChange(event.target);   
   }
 
