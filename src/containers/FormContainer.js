@@ -17,10 +17,10 @@ class FormContainer extends Component {
     };
 
     submitTask = () => {
-       const storageList = JSON.parse(storage.getItem('tasks'));
         if(!('tasks' in storage)){
           storage.setItem('tasks', JSON.stringify([]));
         } 
+        const storageList = JSON.parse(storage.getItem('tasks'));
         const newTask = {
           id: uuidv4(),
           value: this.state.taskContent,
