@@ -191,13 +191,6 @@ input[type="checkbox"] {
     }
   }
 } 
-
-.checkboxInput.inCheckedList {
-  z-index: 100;
-  stroke-width: 1.5;
-  stroke: $color-light;
-  animation: none;
-}
  
 .taskContent {
   @extend .taskInput;

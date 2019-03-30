@@ -24,7 +24,7 @@ class Checkbox extends Component {
       <input 
         type='checkbox'
         name={name} 
-        className={this.props.className}
+        className={`checkboxInput ${checked ? 'checked' : 'unchecked'}`}
         id={id}
         onClick={this.handleClick} 
         value="completed"
