@@ -177,21 +177,17 @@ input[type="checkbox"] {
 
   polyline {
     z-index: 100;
-    stroke-width: 2;
+    stroke-width: 1.5;
     stroke: $color-light;
-    stroke-dasharray: 50;
   }   
 
-  @supports (animation: checked 1.5s ease 0.5s forwards) {
+  @supports (animation: checked 1.5s ease 0.5s forwards)
+        and (stroke-dasharray: 50)
+        and (stroke-dashoffset: 50) {
     polyline {
+      stroke-dasharray: 50;
       stroke-dashoffset: 50;
       animation: checked 1.5s ease 0.5s forwards;
-    }
-  }
-
-  @supports not(animation: checked 1.5s ease 0.5s forwards) {
-    polyline {
-      stroke-dashoffset: 0;
     }
   }
 } 
