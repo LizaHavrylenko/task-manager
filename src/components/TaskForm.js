@@ -64,7 +64,7 @@ class TaskForm extends Component {
           onBlur={this.handleBlur}
           value={taskContent} 
           required
-          />
+        />
         <button 
           className='addTaskButton'
           id='addTaskButton' 

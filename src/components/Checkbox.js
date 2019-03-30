@@ -35,7 +35,7 @@ class Checkbox extends Component {
             cy='11'
             r='12'
           />
-          <polyline points="3,11 9,17 18,5" stroke="#f7f7f7" />
+          <polyline points="3,11 9,17 18,5" stroke="#f7f7f7" stroke-width="1.5"/>
         </svg>
       </label>
     </div> 
