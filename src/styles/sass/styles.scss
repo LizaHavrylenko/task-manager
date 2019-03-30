@@ -159,7 +159,7 @@ svg {
 
       polyline, circle {
         fill: none;
-        stroke-width: 1.5;
+        stroke-width: 2;
       }
     }    
   }
@@ -177,12 +177,23 @@ input[type="checkbox"] {
 
   polyline {
     z-index: 100;
-    stroke-width: 1.5;
+    stroke-width: 2;
     stroke: $color-light;
-    animation: checked 1.5s ease 0.5s forwards;
     stroke-dasharray: 50;
     stroke-dashoffset: 50;
-  }     
+  }   
+
+  @supports (animation: checked 1.5s ease 0.5s forwards) {
+    polyline {
+      animation: checked 1.5s ease 0.5s forwards;
+    }
+  }
+
+  @supports not(animation: checked 1.5s ease 0.5s forwards) {
+    polyline {
+      stroke-dashoffset: 0;
+    }
+  }
 } 
  
 .taskContent {

@@ -1,4 +1,7 @@
 @keyframes checked {
+  from {
+    stroke-dashoffset: 50;
+  }
     to {
       stroke-dashoffset: 0;
     }
