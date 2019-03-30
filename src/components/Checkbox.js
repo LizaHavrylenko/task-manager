@@ -19,6 +19,7 @@ class Checkbox extends Component {
   render() {
     const { id, name } = this.props;
     const { checked } = this.state;
+    console.log('checked', checked)
     return(
       <div className={`checkboxContainer ${checked ? 'checked' : 'unchecked'}`}>
       <input 
