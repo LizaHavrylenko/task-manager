@@ -46,6 +46,7 @@ class ManageTasks extends Component {
   }
 
   handleCheckboxChange = (element) => {
+     const elem = element;
     const { 
       name:task,
       checked,
@@ -76,7 +77,8 @@ class ManageTasks extends Component {
       }
     } 
    
-    setTimeout(() => {
+    setTimeout((element) => {
+      elem.classList.add('noAnim')
       this.setState({
         list: newList
       });  
