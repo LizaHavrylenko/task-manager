@@ -7,7 +7,7 @@ class Checkbox extends Component {
    checked: false
   }
 
-  handleClick = (event) => {
+  handleClick = (event) => {    
     
     this.setState({
       checked: event.target.checked
@@ -19,15 +19,15 @@ class Checkbox extends Component {
   render() {
     const { id, name } = this.props;
     const { checked } = this.state;
-    console.log('checked', checked)
     return(
       <div className={`checkboxContainer ${checked ? 'checked' : 'unchecked'}`}>
       <input 
         type='checkbox'
         name={name} 
-        className={`checkboxInput ${checked ? 'checked' : 'unchecked'}`}
+        className={this.props.className}
         id={id}
         onClick={this.handleClick} 
+        value="completed"
       />
       <label htmlFor={id}>
         <svg className='checkbox' viewBox="0 0 22 22">
@@ -36,7 +36,11 @@ class Checkbox extends Component {
             cy='11'
             r='12'
           />
-          <polyline points="3,11 9,17 18,5" stroke="#f7f7f7" stroke-width="1.5"/>
+          <polyline 
+            points="3,11 9,17 18,5" 
+            stroke="#f7f7f7"
+            strokeWidth="1.5"
+            />
         </svg>
       </label>
     </div> 

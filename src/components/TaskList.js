@@ -12,7 +12,7 @@ class TaskContainer extends Component {
   }
 
   render() {
-    const { tasks } = this.props;
+    const { tasks, checked, checkedTasks } = this.props;
     const dateOptions = {year: 'numeric', month: 'short', day: 'numeric'}; 
     const dateContent = new Date().toLocaleDateString('en-US', dateOptions)
     return(
@@ -24,9 +24,30 @@ class TaskContainer extends Component {
             key={task.id}
           >
             <Checkbox 
+              className={`checkboxInput ${checked ? 'checked' : 'unchecked'}`}
               name={task.value}
               id={task.id} 
               onChange={this.handleChange}
+              checked={checked}
+            />
+            <p className='taskContent' id={task.value}> 
+              {task.value}
+            </p>
+            <span className='timestamp'>{dateContent}</span>
+          </div>
+        ))}
+           {checkedTasks.map(task => (
+          <div 
+            className='task' 
+            id='taskContainer' 
+            key={task.id}
+          >
+            <Checkbox 
+              className={'checkboxInput inCheckedList'}
+              name={task.value}
+              id={task.id} 
+              onChange={this.handleChange}
+              checked={checked}
             />
             <p className='taskContent' id={task.value}> 
               {task.value}

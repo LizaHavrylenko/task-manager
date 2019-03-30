@@ -8,6 +8,7 @@ class ManageTasks extends Component {
     state = {
       list: [],
       checkedTasks: new Map(),
+      checked: false,
     };
   
   componentDidMount() {
@@ -68,13 +69,18 @@ class ManageTasks extends Component {
           newList = [...listInState.slice(0, taskIndex), ...listInState.slice(taskIndex + 1, index), newTask,
           ...listInState.slice(index)]; 
         }
-        
-    } else if (element !== null) {
+        this.setState({
+          checked: true
+        });  
+    } else if (element !== null && !checked) {
       clearTimeout(newTask.timer); 
       if(taskIndex > index) {
         newList = [...listInState.slice(0, index), newTask, ...listInState.slice(index, taskIndex), 
         ...listInState.slice(taskIndex + 1),]
       }
+      this.setState({
+        checked: false
+      });  
     } 
    
     setTimeout(() => {
@@ -83,7 +89,7 @@ class ManageTasks extends Component {
       });  
       this.setState(prevState => ({ 
         checkedTasks: prevState.checkedTasks.set(task, checked)})); 
-    }, 1500);    
+    }, 2000);    
   }
 
   displayTask = (task) => {
@@ -95,13 +101,14 @@ class ManageTasks extends Component {
   }
  
   render(){
-    const { list } = this.state;
+    const { list, checked } = this.state;
     return(
       <Fragment>
         <FormContainer displayTask={this.displayTask} />
         <TaskList 
           tasks={list}
           handleCheckboxChange={this.handleCheckboxChange} 
+          checked={checked}
         />
       </Fragment>
     );
