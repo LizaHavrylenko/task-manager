@@ -7,7 +7,6 @@ class TaskContainer extends Component {
  
   handleChange = (event) => {
     event.stopPropagation();
-    
     this.props.handleCheckboxChange(event.target);   
   }
 
@@ -37,7 +36,7 @@ class TaskContainer extends Component {
       </div> 
     );
   }
-}
+};
 
 TaskContainer.propTypes = {
   handleCheckboxChange: PropTypes.func.isRequired,

@@ -8,11 +8,9 @@ class Checkbox extends Component {
   }
 
   handleClick = (event) => {    
-    
     this.setState({
       checked: event.target.checked
     });
-  
     this.props.onChange(event);
   }
 
@@ -40,7 +38,7 @@ class Checkbox extends Component {
             points="3,11 9,17 18,5" 
             stroke="#f7f7f7"
             strokeWidth="1.5"
-            />
+          />
         </svg>
       </label>
     </div> 

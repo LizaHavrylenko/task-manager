@@ -5,10 +5,10 @@ import FormContainer from './FormContainer';
 
 
 class ManageTasks extends Component {
-    state = {
-      list: [],
-      checkedTasks: new Map(),
-    };
+  state = {
+    list: [],
+    checkedTasks: new Map(),
+  };
   
   componentDidMount() {
     if('tasks' in storage){
@@ -107,6 +107,6 @@ class ManageTasks extends Component {
       </Fragment>
     );
   }
-}
+};
 
 export default ManageTasks;

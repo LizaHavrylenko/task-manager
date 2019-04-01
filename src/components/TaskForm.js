@@ -5,22 +5,22 @@ import { ReactComponent as PlusSVG } from '../add.svg';
 class TaskForm extends Component {
   state = {
     input: false,
-  };
+  }
 
   setButtonRef = element => {
     this.buttonRef = element;
-  };
+  }
 
   setContainerRef = element => {
     this.containerRef = element;
-  };
+  }
  
   handleChange = (event) => {
     this.buttonRef.classList.add('visible');
     this.props.handleChange(event);
     this.setState({
       input: true
-    });
+    })
   }
 
   handleBlur = () => {
